@@ -443,6 +443,8 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(ASSETS, OUT / "assets")
+    for f in (ROOT / "static").glob("*"):
+        shutil.copy(f, OUT / f.name)  # archivos de verificación (Google, etc.) en la raíz
     build_home()
     for c in CATS:
         build_category(c)
