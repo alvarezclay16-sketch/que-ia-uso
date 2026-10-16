@@ -1,0 +1,25 @@
+# Qué IA Uso
+
+> La IA correcta para cada tarea, explicada en español. Directorio en español de herramientas de IA ordenadas por tarea, actualizado en octubre de 2026.
+
+## Tareas
+- [¿Qué IA uso para programar?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/programar/): Claude Code, Cursor, Codex, GitHub Copilot, Google Antigravity
+- [¿Qué IA uso para crear una app o página web sin saber programar?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/apps-sin-codigo/): Lovable, Bolt, v0, Base44, Replit
+- [¿Qué IA uso para escribir textos, correos y documentos?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/escribir/): Claude, ChatGPT, Gemini, Le Chat
+- [¿Qué IA uso para investigar y buscar información con fuentes?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/investigar/): Perplexity, Gemini Deep Research, Consensus, Elicit
+- [¿Qué IA uso para crear y editar imágenes?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/imagen/): Gemini (Nano Banana), Midjourney, Ideogram, Adobe Firefly
+- [¿Qué IA uso para crear videos?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/video/): Google Flow, Kling, Runway, Higgsfield, Luma
+- [¿Qué IA uso para convertir texto en voz o clonar una voz?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/voz/): ElevenLabs, Murf, Voces de Gemini
+- [¿Qué IA uso para crear música y canciones?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/musica/): Suno, ElevenLabs Music, Google Lyria
+- [¿Qué IA uso para transcribir audio y tomar notas de reuniones?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/transcribir/): Fathom, Otter, Granola, Fireflies
+- [¿Qué IA uso para hacer presentaciones?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/presentaciones/): Gamma, Claude, Canva, Beautiful.ai
+- [¿Qué IA uso para automatizar tareas y crear agentes?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/automatizar/): Zapier, n8n, Make, Lindy
+- [¿Qué IA uso para diseñar piezas gráficas e interfaces?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/diseno/): Canva, Figma, Adobe Express, Framer
+- [¿Qué IA uso para atender clientes por WhatsApp o chat?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/atencion-clientes/): Manychat, Botpress, Tidio, respond.io, Wati
+- [¿Qué IA uso para estudiar y aprender?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/estudiar/): Gemini Notebook (ex NotebookLM), ChatGPT (modo estudio), Gemini (Guided Learning)
+- [¿Qué IA uso para trabajar con Excel, Word, correo y documentos?](https://alvarezclay16-sketch.github.io/que-ia-uso/para/productividad-oficina/): Microsoft 365 Copilot, Gemini en Google Workspace, ChatGPT Business, Claude Team, Notion AI
+
+## Otros
+- [Novedades](https://alvarezclay16-sketch.github.io/que-ia-uso/novedades/)
+- [Texto completo](https://alvarezclay16-sketch.github.io/que-ia-uso/llms-full.txt)
+- [Cómo elegimos](https://alvarezclay16-sketch.github.io/que-ia-uso/acerca/)

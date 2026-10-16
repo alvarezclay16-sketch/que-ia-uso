@@ -1,0 +1,17 @@
+[
+  {"id": "programar", "nombre": "Programar", "tarea": "programar", "intro": "Agentes y editores que escriben, corrigen y explican código. Sirven para proyectos reales y para aprender a programar con IA (vibe coding)."},
+  {"id": "apps-sin-codigo", "nombre": "Crear apps sin código", "tarea": "crear una app o página web sin saber programar", "intro": "Describes lo que quieres en español y la herramienta arma la app o la web, con base de datos y publicación incluidas."},
+  {"id": "escribir", "nombre": "Escribir", "tarea": "escribir textos, correos y documentos", "intro": "Asistentes de chat para redactar, corregir, traducir y resumir. La diferencia entre ellos está en el tono, el largo de texto que aguantan y las integraciones."},
+  {"id": "investigar", "nombre": "Investigar", "tarea": "investigar y buscar información con fuentes", "intro": "Buscadores con IA e investigación profunda: responden con citas a las fuentes para que puedas verificar."},
+  {"id": "imagen", "nombre": "Imágenes", "tarea": "crear y editar imágenes", "intro": "Generadores y editores de imagen: fotos realistas, ilustración, productos, texto dentro de la imagen y retoque."},
+  {"id": "video", "nombre": "Video", "tarea": "crear videos", "intro": "Modelos que generan clips desde texto o desde una imagen, con movimiento de cámara y, en algunos casos, audio y voz."},
+  {"id": "voz", "nombre": "Voz", "tarea": "convertir texto en voz o clonar una voz", "intro": "Locuciones naturales en español latino, doblaje y voces clonadas (siempre con permiso de la persona)."},
+  {"id": "musica", "nombre": "Música", "tarea": "crear música y canciones", "intro": "Canciones completas con letra, pistas instrumentales y efectos. Revisa siempre la licencia de uso comercial."},
+  {"id": "transcribir", "nombre": "Transcribir y reuniones", "tarea": "transcribir audio y tomar notas de reuniones", "intro": "Pasan audio a texto, separan quién habla y arman resúmenes y tareas de tus reuniones."},
+  {"id": "presentaciones", "nombre": "Presentaciones", "tarea": "hacer presentaciones", "intro": "Arman diapositivas desde un tema, un documento o un esquema, con diseño listo para editar."},
+  {"id": "automatizar", "nombre": "Automatizar tareas", "tarea": "automatizar tareas y crear agentes", "intro": "Conectan tus apps (correo, planillas, WhatsApp, CRM) y ejecutan flujos o agentes que trabajan solos."},
+  {"id": "diseno", "nombre": "Diseño gráfico", "tarea": "diseñar piezas gráficas e interfaces", "intro": "Diseño para redes, marca e interfaces de apps, con plantillas y generación asistida por IA."},
+  {"id": "atencion-clientes", "nombre": "Atención de clientes", "tarea": "atender clientes por WhatsApp o chat", "intro": "Chatbots y agentes que responden a tus clientes por WhatsApp, Instagram o la web, pensados para pymes."},
+  {"id": "estudiar", "nombre": "Estudiar", "tarea": "estudiar y aprender", "intro": "Convierten tus apuntes, PDFs o videos en resúmenes, preguntas de práctica, tarjetas y hasta podcasts."},
+  {"id": "productividad-oficina", "nombre": "Oficina", "tarea": "trabajar con Excel, Word, correo y documentos", "intro": "IA dentro de las herramientas que ya usas en la oficina: planillas, documentos, correo y calendario."}
+]

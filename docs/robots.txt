@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alvarezclay16-sketch.github.io/que-ia-uso/sitemap.xml

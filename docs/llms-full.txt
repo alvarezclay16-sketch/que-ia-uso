@@ -1,0 +1,174 @@
+# Qué IA Uso — texto completo (octubre de 2026)
+
+## ¿Qué IA uso para programar?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/programar/
+
+Agentes y editores que escriben, corrigen y explican código. Sirven para proyectos reales y para aprender a programar con IA (vibe coding).
+
+1. **Claude Code** (https://claude.com) — Ideal para: proyectos de software reales de punta a punta, desde la terminal o el editor. De los agentes más completos para proyectos reales: lee todo tu proyecto, cambia varios archivos, corre pruebas y explica lo que hizo. Funciona en la terminal, en VS Code y en la app de escritorio. Sin plan gratis. Precio: desde USD 20/mes (17 con pago anual).
+2. **Cursor** (https://cursor.com) — Ideal para: programar viendo y aprobando cada cambio que hace la IA en el editor. Editor de código con agentes: ideal si quieres ver y aprobar cada cambio mientras la IA trabaja. En septiembre sumó Projects, que reparte tareas largas entre varios agentes. El plan de 8 USD tiene modelos limitados; el completo es Premium (30 USD). Plan gratis: solicitudes limitadas de agente y chat. Precio: desde USD 8/mes (Premium 30 USD).
+3. **Codex** (https://chatgpt.com/codex) — Ideal para: programar con agentes si ya pagas ChatGPT. El agente de código de OpenAI, incluido en ChatGPT. En los planes Free y Go sirve para tareas livianas; desde Plus (20 USD) se usa en la web, la terminal, el editor y la nube. Plan gratis: tareas livianas en los planes Free y Go. Precio: desde USD 8/mes.
+4. **GitHub Copilot** (https://github.com/features/copilot) — Ideal para: autocompletar código y pedir cambios dentro de VS Code y GitHub, a bajo costo. La opción económica si ya trabajas en VS Code y GitHub: autocompletado más un agente. Con uso intensivo de agentes, los planes bajos se quedan cortos. Plan gratis: uso limitado de chat y agente. Precio: desde USD 10/mes.
+5. **Google Antigravity** (https://antigravity.google) — Ideal para: probar gratis un editor de código con agentes. Editor con agentes de Google y una buena puerta de entrada gratis para programar con agentes. Para uso intenso necesitas un plan de Google AI. Plan gratis: plan Individuals gratis. Precio: ver en su sitio.
+
+## ¿Qué IA uso para crear una app o página web sin saber programar?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/apps-sin-codigo/
+
+Describes lo que quieres en español y la herramienta arma la app o la web, con base de datos y publicación incluidas.
+
+1. **Lovable** (https://lovable.dev) — Ideal para: crear una app web completa conversando, con base de datos y publicación incluidas. La más fácil para pasar de una idea a una app web funcionando: describes lo que quieres y entrega la app con base de datos, inicio de sesión y publicación. El plan gratis da créditos diarios para probar. Plan gratis: 5 créditos diarios (máx. 30 al mes). Precio: ver en su sitio.
+2. **Bolt** (https://bolt.new) — Ideal para: hacer prototipos de apps web rápido desde el navegador. Muy rápida para prototipos desde el navegador. En el plan gratis tus sitios llevan la marca Bolt. Plan gratis: límite diario y mensual de uso; los sitios llevan la marca Bolt. Precio: desde USD 25/mes.
+3. **v0** (https://v0.app) — Ideal para: crear webs con código profesional que después pueda mantener un programador. La mejor si quieres un resultado con código profesional (React y Next.js) que después pueda mantener un programador. Se publica directo en Vercel. Plan gratis: gratis: 7 mensajes al día. Precio: desde USD 30/mes.
+4. **Base44** (https://base44.com) — Ideal para: herramientas internas de negocio, como inventarios o reservas. Pensada para herramientas internas de negocio (inventarios, reservas, paneles) sin programar. Es de Wix. Plan gratis: plan gratis disponible. Precio: desde USD 16/mes (con pago anual).
+5. **Replit** (https://replit.com) — Ideal para: crear, probar y publicar una app en un solo lugar, incluso desde el celular. Construyes, pruebas y publicas la app con un agente en el mismo lugar, incluso desde el celular. Conviene si quieres alojar todo en una sola plataforma. Plan gratis: plan Starter gratis con límites. Precio: desde USD 20/mes (18 con pago anual).
+
+## ¿Qué IA uso para escribir textos, correos y documentos?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/escribir/
+
+Asistentes de chat para redactar, corregir, traducir y resumir. La diferencia entre ellos está en el tono, el largo de texto que aguantan y las integraciones.
+
+1. **Claude** (https://claude.com) — Ideal para: textos largos, informes y correos con tono natural en español. Escribe con un tono natural en español, mantiene la coherencia en textos largos y corrige sin cambiar tu voz. El plan gratis alcanza para uso ocasional. Plan gratis: plan gratis con límites. Precio: desde USD 20/mes (17 con pago anual).
+2. **ChatGPT** (https://chatgpt.com) — Ideal para: escribir, resumir y reescribir de todo, con un plan de entrada barato. El asistente más versátil. Desde octubre usa GPT-6 y puede responder con gráficos y pequeñas herramientas dentro del chat. El plan Go (8 USD) es una entrada barata. Plan gratis: plan gratis con límites. Precio: desde USD 8/mes.
+3. **Gemini** (https://gemini.google) — Ideal para: escribir dentro de Gmail y Google Docs. Conviene si vives en Gmail y Google Docs: escribe y resume dentro de ellos. Su plan AI Plus es de los más baratos. Plan gratis: plan gratis con límites. Precio: desde USD 4,99/mes (precio en EE. UU.; varía por país).
+4. **Le Chat** (https://chat.mistral.ai) — Ideal para: escribir con una alternativa europea centrada en la privacidad. Alternativa europea con foco en privacidad y un plan gratis generoso. Útil si prefieres no depender de empresas de EE. UU. Plan gratis: plan gratis disponible. Precio: desde USD 14,99/mes.
+
+## ¿Qué IA uso para investigar y buscar información con fuentes?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/investigar/
+
+Buscadores con IA e investigación profunda: responden con citas a las fuentes para que puedas verificar.
+
+1. **Perplexity** (https://www.perplexity.ai) — Ideal para: buscar respuestas con la fuente citada en cada frase. El buscador con IA más cómodo: responde con fuentes citadas en cada frase y tiene Deep Research para informes largos. Plan gratis: búsqueda con citas y modelos básicos, uso diario limitado. Precio: desde USD 17/mes (con pago anual).
+2. **Gemini Deep Research** (https://gemini.google) — Ideal para: informes largos que revisan decenas de páginas, gratis para probar. Arma informes largos navegando decenas de páginas, y se puede probar gratis. Exporta a Google Docs. Plan gratis: Deep Research incluido en el plan gratis. Precio: desde USD 4,99/mes (precio en EE. UU.; varía por país).
+3. **Consensus** (https://consensus.app) — Ideal para: saber qué dicen los estudios científicos sobre un tema. Busca solo en artículos científicos revisados y te dice qué dice la evidencia. Ideal para tesis y temas de salud. Plan gratis: plan gratis disponible. Precio: ver en su sitio.
+4. **Elicit** (https://elicit.com) — Ideal para: revisar literatura académica con muchos artículos. Para revisiones de literatura serias: filtra miles de papers y extrae datos en tablas. Más de nicho y de pago para uso intenso. Plan gratis: Basic gratis con uso limitado. Precio: desde USD 49/mes (con pago anual).
+
+## ¿Qué IA uso para crear y editar imágenes?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/imagen/
+
+Generadores y editores de imagen: fotos realistas, ilustración, productos, texto dentro de la imagen y retoque.
+
+1. **Gemini (Nano Banana)** (https://gemini.google) — Ideal para: crear y editar imágenes con texto legible, gratis. Muy completa para crear y editar: Nano Banana 2.1 (octubre de 2026) escribe bien el texto dentro de la imagen, usa hasta 14 imágenes de referencia y llega a 4K. Se usa gratis en la app de Gemini. Plan gratis: generación y edición de imágenes incluida en Free. Precio: desde USD 4,99/mes (precio en EE. UU.; varía por país).
+2. **Midjourney** (https://www.midjourney.com) — Ideal para: imágenes con estética artística y un estilo muy cuidado. La de mejor estética artística y control de estilo. No tiene plan gratis. Sin plan gratis. Precio: ver en su sitio.
+3. **Ideogram** (https://ideogram.ai) — Ideal para: imágenes con texto: logos, afiches y tipografía. Muy buena para imágenes con texto: logos, afiches y tipografía. La versión 4.5 (septiembre) mejoró la edición paso a paso. Plan gratis: créditos gratis cada semana. Precio: ver en su sitio.
+4. **Adobe Firefly** (https://firefly.adobe.com) — Ideal para: imágenes para uso comercial, conectadas con Photoshop. La opción más segura para uso comercial y la que mejor se integra con Photoshop y Adobe Express. Tiene generaciones gratis cada día. Plan gratis: generaciones diarias gratis de imagen, video y audio. Precio: desde USD 9,99/mes.
+
+## ¿Qué IA uso para crear videos?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/video/
+
+Modelos que generan clips desde texto o desde una imagen, con movimiento de cámara y, en algunos casos, audio y voz.
+
+1. **Google Flow** (https://flow.google.com) — Ideal para: clips realistas con audio y una edición simple. Usa Veo, de los modelos de video más realistas, que además genera el audio sincronizado. Flow te deja ordenar los clips en una línea de tiempo simple. Se paga con los planes de Google AI. Sin plan gratis. Precio: desde USD 4,99/mes (con Google AI Plus, precio en EE. UU.).
+2. **Kling** (https://kling.ai) — Ideal para: clips realistas con movimiento natural, para redes y anuncios. Video muy realista con movimiento natural; la versión 4.0 genera video con audio. Muy usada para clips cortos y anuncios. Sin plan gratis. Precio: ver en su sitio.
+3. **Runway** (https://runway.com) — Ideal para: video con herramientas de edición para trabajo profesional. La más pensada para flujos profesionales: además de generar, trae herramientas para editar y modificar tomas. Plan gratis: 125 créditos de regalo al empezar. Precio: desde USD 12/mes (15 con pago mensual).
+4. **Higgsfield** (https://higgsfield.ai) — Ideal para: probar muchos modelos de video en un solo lugar. Reúne más de 30 modelos de video e imagen (Kling, Veo, Seedance y otros) en un solo lugar, con herramientas de cámara tipo cine. Práctica para comparar modelos sin pagar varias suscripciones. Sin plan gratis. Precio: ver en su sitio.
+5. **Luma** (https://lumalabs.ai) — Ideal para: generar tomas y modificar videos que ya tienes. Buena para generar y modificar tomas existentes. No tiene plan gratis. Sin plan gratis. Precio: desde USD 30/mes (25 con pago anual).
+
+## ¿Qué IA uso para convertir texto en voz o clonar una voz?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/voz/
+
+Locuciones naturales en español latino, doblaje y voces clonadas (siempre con permiso de la persona).
+
+1. **ElevenLabs** (https://elevenlabs.io) — Ideal para: locuciones, clonar tu voz y doblar videos con voces naturales. Voces muy naturales en español latino para locución, clonación de tu propia voz y doblaje. El plan gratis da 10.000 créditos al mes y la versión v4 (septiembre) suena más expresiva. Plan gratis: 10.000 créditos al mes, sin uso comercial. Precio: desde USD 6/mes.
+2. **Murf** (https://murf.ai) — Ideal para: grabar locuciones de estudio para videos corporativos y cursos. Locuciones de estudio para videos corporativos y cursos, con editor para ajustar pausas y énfasis. Sin plan gratis. Precio: ver en su sitio.
+3. **Voces de Gemini** (https://aistudio.google.com) — Ideal para: desarrolladores que quieren agregar voces a su propia app. Para quien arma su propia app: voces con diseño y réplica de voz que se prueban en Google AI Studio. No es una app para usuarios comunes. Sin plan gratis. Precio: ver en su sitio.
+
+## ¿Qué IA uso para crear música y canciones?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/musica/
+
+Canciones completas con letra, pistas instrumentales y efectos. Revisa siempre la licencia de uso comercial.
+
+1. **Suno** (https://suno.com) — Ideal para: canciones completas con voz y letra a partir de un texto. La más usada para canciones completas con voz y letra en español. El plan gratis no permite uso comercial; Pro sí. La versión v6 (septiembre) permite editar partes de una canción. Plan gratis: 50 créditos diarios, sin derechos comerciales. Precio: desde USD 8/mes.
+2. **ElevenLabs Music** (https://elevenlabs.io) — Ideal para: crear música de fondo para tus videos, incluso a partir del clip. Música para videos y, desde octubre, «Video To Music», que crea la banda sonora a partir de tu clip. El uso comercial parte en el plan Starter. Plan gratis: incluida en el plan gratis de ElevenLabs, sin uso comercial. Precio: desde USD 6/mes.
+3. **Google Lyria** (https://aistudio.google.com) — Ideal para: desarrolladores que quieren generar música en su propia app. El modelo de música de Google, disponible para desarrolladores desde septiembre. No es una app para usuarios comunes. Sin plan gratis. Precio: ver en su sitio.
+
+## ¿Qué IA uso para transcribir audio y tomar notas de reuniones?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/transcribir/
+
+Pasan audio a texto, separan quién habla y arman resúmenes y tareas de tus reuniones.
+
+1. **Fathom** (https://fathom.ai) — Ideal para: notas y resúmenes de reuniones de Zoom, Meet y Teams sin pagar. Graba, transcribe y resume Zoom, Meet y Teams; el plan gratis no limita las grabaciones. Muy buena opción para empezar. Plan gratis: gratis para siempre: grabaciones y transcripción ilimitadas. Precio: desde USD 20/mes (16 con pago anual).
+2. **Otter** (https://otter.ai) — Ideal para: transcribir en vivo separando quién habla. Transcripción en vivo que separa quién habla. El plan gratis da 300 minutos al mes con un tope de 30 minutos por reunión. Plan gratis: 300 minutos al mes. Precio: desde USD 16,99/mes.
+3. **Granola** (https://www.granola.ai) — Ideal para: tomar notas de reuniones sin meter un bot a la llamada. Toma notas sin meter un bot a la reunión: completa lo que tú escribes con lo que se dijo. Muy cómoda para quien odia los bots en las llamadas. Plan gratis: Basic gratis con 30 días de historial. Precio: desde USD 14/mes.
+4. **Fireflies** (https://fireflies.ai) — Ideal para: grabar y buscar en todas las reuniones de un equipo. Pensada para equipos: graba, transcribe y deja buscar en todas las reuniones de la empresa. Plan gratis: plan gratis con límites. Precio: ver en su sitio.
+
+## ¿Qué IA uso para hacer presentaciones?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/presentaciones/
+
+Arman diapositivas desde un tema, un documento o un esquema, con diseño listo para editar.
+
+1. **Gamma** (https://gamma.app) — Ideal para: pasar de un tema o documento a una presentación lista en minutos. La más rápida para pasar de un tema o documento a una presentación lista y bonita, que se edita en el navegador y se exporta a PowerPoint. Plan gratis: créditos únicos al empezar. Precio: ver en su sitio.
+2. **Claude** (https://claude.com) — Ideal para: armar presentaciones cuando el contenido importa más que el diseño. Arma presentaciones, documentos y planillas descargables a partir de tu material; Sonnet 5.5 (septiembre) mejoró justo en eso. Útil cuando el contenido importa más que el diseño. Plan gratis: plan gratis con límites. Precio: desde USD 20/mes (17 con pago anual).
+3. **Canva** (https://www.canva.com) — Ideal para: presentaciones con plantillas y la imagen de tu marca. La mejor si necesitas diseño de marca y plantillas; la IA completa (Canva AI 2.0) está en los planes de pago. Plan gratis: plan gratis con IA limitada. Precio: ver en su sitio.
+4. **Beautiful.ai** (https://www.beautiful.ai) — Ideal para: presentaciones de equipo ordenadas y consistentes. Diseño automático que mantiene todo ordenado mientras editas; pensado para equipos. Sin plan gratis, con prueba de 14 días. Sin plan gratis. Precio: desde USD 14,5/mes (con pago anual).
+
+## ¿Qué IA uso para automatizar tareas y crear agentes?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/automatizar/
+
+Conectan tus apps (correo, planillas, WhatsApp, CRM) y ejecutan flujos o agentes que trabajan solos.
+
+1. **Zapier** (https://zapier.com) — Ideal para: conectar tus apps sin código, lo más fácil para empezar. La más fácil para empezar: conecta miles de apps sin código y ahora incluye agentes. El plan gratis da 100 tareas al mes. Plan gratis: 100 tareas al mes. Precio: desde USD 19,99/mes (con pago anual).
+2. **n8n** (https://n8n.io) — Ideal para: automatizaciones con agentes de IA y bots de WhatsApp, con control total. Muy usada para automatizaciones con agentes de IA y bots de WhatsApp. Es gratis si la instalas en tu propio servidor; en la nube parte en 20 euros al mes. Plan gratis: gratis si la instalas en tu servidor. Precio: ver en su sitio.
+3. **Make** (https://www.make.com) — Ideal para: flujos visuales más complejos a menor costo. Flujos visuales complejos a menor costo que Zapier. El plan gratis da 1.000 créditos al mes. Plan gratis: 1.000 créditos al mes. Precio: ver en su sitio.
+4. **Lindy** (https://www.lindy.ai) — Ideal para: asistentes que manejan tu correo y agenda sin armar flujos. Asistentes que hacen tareas de oficina por ti (correo, agenda, seguimiento) sin armar flujos a mano. Sin plan gratis. Precio: desde USD 29,99/mes.
+
+## ¿Qué IA uso para diseñar piezas gráficas e interfaces?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/diseno/
+
+Diseño para redes, marca e interfaces de apps, con plantillas y generación asistida por IA.
+
+1. **Canva** (https://www.canva.com) — Ideal para: crear piezas para redes sociales, marca y documentos. Lo más práctico para piezas de redes, marca y documentos. Canva AI crea diseños conversando; la versión completa está en los planes de pago. Plan gratis: plan gratis con IA limitada. Precio: ver en su sitio.
+2. **Figma** (https://www.figma.com) — Ideal para: diseñar pantallas de apps y páginas web. El estándar para diseñar interfaces de apps y webs, ahora con un agente de IA en el lienzo. El plan gratis incluye créditos de IA. Plan gratis: Starter gratis: hasta 500 créditos IA al mes. Precio: desde USD 16/mes.
+3. **Adobe Express** (https://www.adobe.com/express) — Ideal para: gráficos rápidos para redes, con imágenes de Firefly. Gráficos rápidos para redes con las imágenes de Firefly integradas, y con plan gratis. Plan gratis: IA generativa limitada. Precio: desde USD 9,99/mes.
+4. **Framer** (https://www.framer.com) — Ideal para: diseñar y publicar un sitio web en el mismo lugar. Diseñas y publicas un sitio web en el mismo lugar, con ayuda de IA. El plan gratis es solo para uso no comercial. Plan gratis: solo uso no comercial, con 500 créditos de IA de prueba. Precio: desde USD 10/mes.
+
+## ¿Qué IA uso para atender clientes por WhatsApp o chat?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/atencion-clientes/
+
+Chatbots y agentes que responden a tus clientes por WhatsApp, Instagram o la web, pensados para pymes.
+
+1. **Manychat** (https://manychat.com) — Ideal para: responder y vender por Instagram, Messenger y WhatsApp. La más usada por pymes para responder y vender por Instagram, Messenger y WhatsApp con flujos y IA. Los mensajes de WhatsApp los cobra Meta aparte. Plan gratis: plan gratis con límite de contactos. Precio: ver en su sitio.
+2. **Botpress** (https://botpress.com) — Ideal para: armar tu propio agente de atención con mucho control. Para armar un agente propio con mucho control, en WhatsApp y en la web. El plan gratis sirve para probar; el de pago es caro. Plan gratis: 100 conversaciones al mes, 3 agentes. Precio: desde USD 150/mes (con pago anual).
+3. **Tidio** (https://www.tidio.com) — Ideal para: el chat de la web de una tienda pequeña. Chat en la web de tiendas pequeñas con el agente Lyro; las primeras 50 conversaciones con IA son gratis. Plan gratis: 50 conversaciones al mes, 10 puestos. Precio: desde USD 24,17/mes.
+4. **respond.io** (https://respond.io) — Ideal para: atender WhatsApp entre varias personas del equipo. Para equipos que atienden por WhatsApp entre varias personas, con bandeja compartida y flujos. Sin plan gratis. Sin plan gratis. Precio: desde USD 99/mes (79 con pago anual).
+5. **Wati** (https://www.wati.io) — Ideal para: campañas y bandeja compartida sobre WhatsApp Business oficial. Bandeja compartida sobre la API oficial de WhatsApp Business, con automatizaciones y campañas. Tiene prueba de 7 días. Sin plan gratis. Precio: ver en su sitio.
+
+## ¿Qué IA uso para estudiar y aprender?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/estudiar/
+
+Convierten tus apuntes, PDFs o videos en resúmenes, preguntas de práctica, tarjetas y hasta podcasts.
+
+1. **Gemini Notebook (ex NotebookLM)** (https://notebook.google) — Ideal para: estudiar con tus apuntes y PDFs: resúmenes, tarjetas y un podcast de tu material. La mejor para estudiar con tus propios apuntes y PDFs: arma resúmenes, tarjetas, preguntas y hasta un podcast en español sobre tu material. Gratis. Plan gratis: plan gratis con 100 cuadernos. Precio: ver en su sitio.
+2. **ChatGPT (modo estudio)** (https://chatgpt.com) — Ideal para: que un tutor te guíe con preguntas en vez de darte la respuesta. Su modo estudio funciona como tutor: te guía con preguntas en vez de darte la respuesta. Disponible en el plan gratis. Plan gratis: Study Mode disponible en Free. Precio: desde USD 8/mes.
+3. **Gemini (Guided Learning)** (https://gemini.google) — Ideal para: explicaciones paso a paso con preguntas de práctica. Explicaciones paso a paso con imágenes y preguntas de práctica, también en el plan gratis. Plan gratis: uso básico en Free. Precio: desde USD 4,99/mes (precio en EE. UU.; varía por país).
+
+## ¿Qué IA uso para trabajar con Excel, Word, correo y documentos?
+URL: https://alvarezclay16-sketch.github.io/que-ia-uso/para/productividad-oficina/
+
+IA dentro de las herramientas que ya usas en la oficina: planillas, documentos, correo y calendario.
+
+1. **Microsoft 365 Copilot** (https://www.microsoft.com/microsoft-365/copilot) — Ideal para: trabajar con IA dentro de Word, Excel, Outlook y Teams. Si tu empresa usa Word, Excel, Outlook y Teams, esta es la opción: trabaja dentro de tus archivos. Copilot Chat viene sin costo en planes elegibles; la versión completa es un complemento. Sin plan gratis. Precio: desde USD 25,2/mes (pago mensual por usuario; 21 con pago anual).
+2. **Gemini en Google Workspace** (https://workspace.google.com) — Ideal para: trabajar con IA dentro de Gmail, Docs y Hojas de cálculo. El equivalente para empresas en Google: Gemini dentro de Gmail, Docs, Hojas de cálculo y Meet, incluido según el plan de Workspace. Sin plan gratis. Precio: ver en su sitio.
+3. **ChatGPT Business** (https://chatgpt.com) — Ideal para: darle ChatGPT a tu equipo, con administración y agentes. ChatGPT para equipos con administración, agentes y Codex. Mínimo 2 usuarios. Sin plan gratis. Precio: desde USD 20/mes (por usuario, con pago anual).
+4. **Claude Team** (https://claude.com) — Ideal para: que tu equipo trabaje con documentos largos, planillas y código. Para equipos que trabajan con documentos largos, planillas y código; tiene asientos con Claude Code. Sin plan gratis. Precio: desde USD 20/mes (por usuario, con pago anual).
+5. **Notion AI** (https://www.notion.com) — Ideal para: buscar y preguntar sobre todo lo que tu equipo tiene en Notion. IA dentro de tus notas y documentos de Notion: busca en todo tu espacio, toma notas de reuniones y responde preguntas. La IA completa está en el plan Business. Plan gratis: plan gratis con prueba limitada de IA. Precio: desde USD 20/mes (por usuario, plan Business).
+
+## Novedades
+- 2026-10-15: ElevenLabs lanza Video To Music — Genera música de fondo a partir de uno o varios videos, con descripción y estilos opcionales. (https://www.scriptbyai.com/elevenlabs-timeline/)
+- 2026-10-13: Gemini 4 Argon queda disponible para todos en la API — El modelo pasa a disponibilidad general en la API de Gemini como gemini-4-argon; Google AI Pro lo incluye en la app. (https://ai.google.dev/gemini-api/docs/changelog)
+- 2026-10-07: Anthropic lanza Claude Haiku 5.5 — Modelo pequeño pensado para tareas de alto volumen, con ajuste de esfuerzo y precio de 0,10 USD de entrada por millón de tokens. (https://www.anthropic.com/news/claude-haiku-5-5)
+- 2026-10-07: ChatGPT estrena GPT-6 y respuestas interactivas para todos los usuarios — Las respuestas pueden incluir gráficos, formularios y mini herramientas dentro del chat; GPT-6 Sol en planes de pago y GPT-6 Luna en Free y Go; en los planes gratis y Go llegó un día después. (https://alternativeto.net/news/2026/10/openai-expands-gpt-6-access-with-new-intelligent-ui-capability-for-all-chatgpt-users/)
+- 2026-10-06: Google lanza Nano Banana 2.1 para imágenes — Modelo de imagen y edición conversacional con salida hasta 4K, hasta 14 imágenes de referencia y mejor texto dentro de la imagen. (https://ai.google.dev/gemini-api/docs/changelog)
+- 2026-10-06: Mistral presenta en vista previa Mistral Large 4 — Nuevo modelo grande de Mistral, por ahora solo para desarrolladores (API); prometen publicarlo como modelo abierto a fines de octubre. (https://simonwillison.net/2026/Oct/6/le-chonk/)
+- 2026-10-01: Microsoft presenta MAI-Voice-2.1 y MAI-Transcribe-2-Streaming — Dos modelos de texto a voz y uno de transcripción en tiempo real en 60 idiomas, para desarrolladores. (https://unite.ai/microsoft-launches-mai-transcribe-2-streaming-and-two-mai-voice-models)
+- 2026-09-30: Google presenta Gemini 4 Argon, primero para defensores de ciberseguridad — El nuevo modelo de punta de Google, orientado a ingeniería de software y trabajo de conocimiento, llega primero a un grupo restringido; la apertura más amplia queda para después. (https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+- 2026-09-29: OpenAI DevDay: GPT-6.1 Sol, agentes Dots y Codex en la nube — OpenAI presentó GPT-6.1 Sol (2 USD/10 USD por millón de tokens), los agentes siempre activos Dots para Pro y Business Premium, un plan Pro de 500 USD y Codex con tareas en la nube reanudables. (https://www.deeplearning.ai/the-batch/sol-nearly-eclipses-astra)
+- 2026-09-28: Anthropic lanza Claude Sonnet 5.5 — Modelo más rápido y barato que Opus 5.5 (2 USD de entrada y 10 de salida por millón de tokens), fuerte en errores de código, documentos, diapositivas y hojas de cálculo. (https://www.anthropic.com/news/claude-sonnet-5-5)
+- 2026-09-28: ElevenLabs lanza Eleven v4 y v4 Turbo — Voz más expresiva y consistente en ElevenAgents, ElevenCreative y la API; Turbo está pensado para conversación en vivo. (https://www.scriptbyai.com/elevenlabs-timeline/)
+- 2026-09-23: Cursor suma seguimiento de cambios hasta producción y revisión de seguridad — Ahora sigue cada cambio de código hasta que llega a producción y marca fallas de seguridad explotables antes de aprobarlo. (https://www.havoptic.com/releases/cursor/2026/9)
+- 2026-09-22: Anthropic lanza Claude Opus 5.5 — Primer modelo de la familia 5.5: más del 30% más rápido que Opus 5, precio de 4 USD de entrada y 20 de salida por millón de tokens, y límites de uso ampliados en planes de pago. (https://www.anthropic.com/news/claude-opus-5-5)
+- 2026-09-22: Las voces de Gemini quedan disponibles para desarrolladores — Google sacó de prueba sus modelos de texto a voz, con más voces, diseño de voz y réplica de voz. (https://ai.google.dev/gemini-api/docs/changelog)
+- 2026-09-10: Cursor suma Projects para tareas largas con agentes en paralelo — Un agente coordinador divide trabajos grandes entre varios agentes que corren en una computadora en la nube. (https://www.havoptic.com/releases/cursor/2026/9)
+- 2026-09-09: Suno presenta v6 con edición por partes y mezclas — La nueva familia de modelos v6 permite editar secciones de una canción y combinar canciones. (https://alternativeto.net/news/2026/9/suno-launches-v6-with-song-editing-mashups-and-three-new-model-tiers/)
+- 2026-09-03: Google lanza Lyria 3.5 para generar música — El modelo de música Lyria 3.5 pasó a disponibilidad general en la API de Gemini. (https://ai.google.dev/gemini-api/docs/changelog)
+- 2026-09-02: Cursor lanza máquinas autoalojadas para sus agentes — Los agentes de Cursor pueden correr dentro de tu propia red, sin sacar código ni secretos, con uso de computador en Linux y Mac. (https://www.havoptic.com/releases/cursor/2026/9)
+- 2026-09-02: Gemini 3.8 Flash ya está disponible en la API de Gemini — Google llevó Gemini 3.8 Flash a disponibilidad general el 2 de septiembre. (https://ai.google.dev/gemini-api/docs/changelog)

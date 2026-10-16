@@ -1,0 +1,154 @@
+[
+ {
+  "fecha": "2026-09-02",
+  "titulo": "Cursor lanza máquinas autoalojadas para sus agentes",
+  "resumen": "Los agentes de Cursor pueden correr dentro de tu propia red, sin sacar código ni secretos, con uso de computador en Linux y Mac.",
+  "herramienta": "Cursor",
+  "categoria": "programar",
+  "fuente": "https://www.havoptic.com/releases/cursor/2026/9"
+ },
+ {
+  "fecha": "2026-09-02",
+  "titulo": "Gemini 3.8 Flash ya está disponible en la API de Gemini",
+  "resumen": "Google llevó Gemini 3.8 Flash a disponibilidad general el 2 de septiembre.",
+  "herramienta": "Gemini",
+  "categoria": "programar",
+  "fuente": "https://ai.google.dev/gemini-api/docs/changelog"
+ },
+ {
+  "fecha": "2026-09-03",
+  "titulo": "Google lanza Lyria 3.5 para generar música",
+  "resumen": "El modelo de música Lyria 3.5 pasó a disponibilidad general en la API de Gemini.",
+  "herramienta": "Google Lyria",
+  "categoria": "musica",
+  "fuente": "https://ai.google.dev/gemini-api/docs/changelog"
+ },
+ {
+  "fecha": "2026-09-09",
+  "titulo": "Suno presenta v6 con edición por partes y mezclas",
+  "resumen": "La nueva familia de modelos v6 permite editar secciones de una canción y combinar canciones.",
+  "herramienta": "Suno",
+  "categoria": "musica",
+  "fuente": "https://alternativeto.net/news/2026/9/suno-launches-v6-with-song-editing-mashups-and-three-new-model-tiers/"
+ },
+ {
+  "fecha": "2026-09-10",
+  "titulo": "Cursor suma Projects para tareas largas con agentes en paralelo",
+  "resumen": "Un agente coordinador divide trabajos grandes entre varios agentes que corren en una computadora en la nube.",
+  "herramienta": "Cursor",
+  "categoria": "programar",
+  "fuente": "https://www.havoptic.com/releases/cursor/2026/9"
+ },
+ {
+  "fecha": "2026-09-22",
+  "titulo": "Anthropic lanza Claude Opus 5.5",
+  "resumen": "Primer modelo de la familia 5.5: más del 30% más rápido que Opus 5, precio de 4 USD de entrada y 20 de salida por millón de tokens, y límites de uso ampliados en planes de pago.",
+  "herramienta": "Claude",
+  "categoria": "programar",
+  "fuente": "https://www.anthropic.com/news/claude-opus-5-5"
+ },
+ {
+  "fecha": "2026-09-22",
+  "titulo": "Las voces de Gemini quedan disponibles para desarrolladores",
+  "resumen": "Google sacó de prueba sus modelos de texto a voz, con más voces, diseño de voz y réplica de voz.",
+  "herramienta": "Gemini",
+  "categoria": "voz",
+  "fuente": "https://ai.google.dev/gemini-api/docs/changelog"
+ },
+ {
+  "fecha": "2026-09-23",
+  "titulo": "Cursor suma seguimiento de cambios hasta producción y revisión de seguridad",
+  "resumen": "Ahora sigue cada cambio de código hasta que llega a producción y marca fallas de seguridad explotables antes de aprobarlo.",
+  "herramienta": "Cursor",
+  "categoria": "programar",
+  "fuente": "https://www.havoptic.com/releases/cursor/2026/9"
+ },
+ {
+  "fecha": "2026-09-28",
+  "titulo": "Anthropic lanza Claude Sonnet 5.5",
+  "resumen": "Modelo más rápido y barato que Opus 5.5 (2 USD de entrada y 10 de salida por millón de tokens), fuerte en errores de código, documentos, diapositivas y hojas de cálculo.",
+  "herramienta": "Claude",
+  "categoria": "programar",
+  "fuente": "https://www.anthropic.com/news/claude-sonnet-5-5"
+ },
+ {
+  "fecha": "2026-09-28",
+  "titulo": "ElevenLabs lanza Eleven v4 y v4 Turbo",
+  "resumen": "Voz más expresiva y consistente en ElevenAgents, ElevenCreative y la API; Turbo está pensado para conversación en vivo.",
+  "herramienta": "ElevenLabs",
+  "categoria": "voz",
+  "fuente": "https://www.scriptbyai.com/elevenlabs-timeline/"
+ },
+ {
+  "fecha": "2026-09-29",
+  "titulo": "OpenAI DevDay: GPT-6.1 Sol, agentes Dots y Codex en la nube",
+  "resumen": "OpenAI presentó GPT-6.1 Sol (2 USD/10 USD por millón de tokens), los agentes siempre activos Dots para Pro y Business Premium, un plan Pro de 500 USD y Codex con tareas en la nube reanudables.",
+  "herramienta": "ChatGPT / Codex",
+  "categoria": "programar",
+  "fuente": "https://www.deeplearning.ai/the-batch/sol-nearly-eclipses-astra"
+ },
+ {
+  "fecha": "2026-09-30",
+  "titulo": "Google presenta Gemini 4 Argon, primero para defensores de ciberseguridad",
+  "resumen": "El nuevo modelo de punta de Google, orientado a ingeniería de software y trabajo de conocimiento, llega primero a un grupo restringido; la apertura más amplia queda para después.",
+  "herramienta": "Gemini",
+  "categoria": "programar",
+  "fuente": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+ },
+ {
+  "fecha": "2026-10-01",
+  "titulo": "Microsoft presenta MAI-Voice-2.1 y MAI-Transcribe-2-Streaming",
+  "resumen": "Dos modelos de texto a voz y uno de transcripción en tiempo real en 60 idiomas, para desarrolladores.",
+  "herramienta": "Microsoft MAI",
+  "categoria": "transcribir",
+  "fuente": "https://unite.ai/microsoft-launches-mai-transcribe-2-streaming-and-two-mai-voice-models"
+ },
+ {
+  "fecha": "2026-10-06",
+  "titulo": "Google lanza Nano Banana 2.1 para imágenes",
+  "resumen": "Modelo de imagen y edición conversacional con salida hasta 4K, hasta 14 imágenes de referencia y mejor texto dentro de la imagen.",
+  "herramienta": "Gemini (Nano Banana)",
+  "categoria": "imagen",
+  "fuente": "https://ai.google.dev/gemini-api/docs/changelog"
+ },
+ {
+  "fecha": "2026-10-06",
+  "titulo": "Mistral presenta en vista previa Mistral Large 4",
+  "resumen": "Nuevo modelo grande de Mistral, por ahora solo para desarrolladores (API); prometen publicarlo como modelo abierto a fines de octubre.",
+  "herramienta": "Mistral",
+  "categoria": "escribir",
+  "fuente": "https://simonwillison.net/2026/Oct/6/le-chonk/"
+ },
+ {
+  "fecha": "2026-10-07",
+  "titulo": "Anthropic lanza Claude Haiku 5.5",
+  "resumen": "Modelo pequeño pensado para tareas de alto volumen, con ajuste de esfuerzo y precio de 0,10 USD de entrada por millón de tokens.",
+  "herramienta": "Claude",
+  "categoria": "programar",
+  "fuente": "https://www.anthropic.com/news/claude-haiku-5-5"
+ },
+ {
+  "fecha": "2026-10-07",
+  "titulo": "ChatGPT estrena GPT-6 y respuestas interactivas para todos los usuarios",
+  "resumen": "Las respuestas pueden incluir gráficos, formularios y mini herramientas dentro del chat; GPT-6 Sol en planes de pago y GPT-6 Luna en Free y Go; en los planes gratis y Go llegó un día después.",
+  "herramienta": "ChatGPT",
+  "categoria": "escribir",
+  "fuente": "https://alternativeto.net/news/2026/10/openai-expands-gpt-6-access-with-new-intelligent-ui-capability-for-all-chatgpt-users/"
+ },
+ {
+  "fecha": "2026-10-13",
+  "titulo": "Gemini 4 Argon queda disponible para todos en la API",
+  "resumen": "El modelo pasa a disponibilidad general en la API de Gemini como gemini-4-argon; Google AI Pro lo incluye en la app.",
+  "herramienta": "Gemini",
+  "categoria": "programar",
+  "fuente": "https://ai.google.dev/gemini-api/docs/changelog"
+ },
+ {
+  "fecha": "2026-10-15",
+  "titulo": "ElevenLabs lanza Video To Music",
+  "resumen": "Genera música de fondo a partir de uno o varios videos, con descripción y estilos opcionales.",
+  "herramienta": "ElevenLabs",
+  "categoria": "musica",
+  "fuente": "https://www.scriptbyai.com/elevenlabs-timeline/"
+ }
+]
