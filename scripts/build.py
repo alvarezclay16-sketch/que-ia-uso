@@ -91,15 +91,20 @@ def analytics():
             f'async src="//gc.zgo.at/count.js"></script>')
 
 
+AC = ' aria-current="page"'
+
+
 def page(path, title, desc, body, jsonld=None, canonical=None, noindex=False):
     url = f"{BU}{path}"
     ld = ""
     for block in (jsonld or []):
         ld += f'<script type="application/ld+json">{json.dumps(block, ensure_ascii=False)}</script>\n'
     nav = "".join(
-        f'<a href="{link(h)}">{t}</a>'
+        f'<a href="{link(h)}"{AC if h == path else ""}>{t}</a>'
         for h, t in [("/", "Inicio"), ("/novedades/", "Novedades"), ("/patrocina/", "Patrocina"), ("/acerca/", "Cómo elegimos")]
     )
+    cinta = "".join(f'<a href="{e(n["fuente"])}" target="_blank" rel="noopener"><b>{dt.date.fromisoformat(n["fecha"]).day} {MESES[dt.date.fromisoformat(n["fecha"]).month - 1][:3]}</b>{e(n["titulo"])}</a>'
+                    for n in NEWS[:8])
     html_doc = f"""<!doctype html>
 <html lang="es">
 <head>
@@ -116,22 +121,27 @@ def page(path, title, desc, body, jsonld=None, canonical=None, noindex=False):
 <meta name="twitter:card" content="summary">
 <link rel="alternate" type="application/rss+xml" title="{e(CFG['nombre'])} · Novedades" href="{link('/feed.xml')}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e8590c'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3E%3F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@400..700&display=swap">
 <link rel="stylesheet" href="{link('/assets/style.css')}">
+<script>document.documentElement.classList.add('js')</script>
 {ld}</head>
 <body>
 <header class="top"><div class="wrap">
 <a class="logo" href="{link('/')}"><span class="q">¿</span>Qué IA Uso<span class="q">?</span></a>
-<nav>{nav}</nav>
+<nav aria-label="Principal">{nav}</nav>
 </div></header>
+<div class="cinta" role="region" aria-label="Últimas novedades"><div class="cinta-in">{cinta}</div></div>
 <main class="wrap">
 {body}
 </main>
 <footer class="pie"><div class="wrap">
-<p><strong>{e(CFG['nombre'])}</strong> · {e(CFG['lema'])}</p>
+<p><a class="logo" href="{link('/')}"><span class="q">¿</span>Qué IA Uso<span class="q">?</span></a><br>{e(CFG['lema'])}</p>
 <p>Actualizado el {fecha_larga(TODAY.isoformat())}. Los precios y planes cambian seguido: confírmalos en el sitio oficial antes de pagar.
 Los espacios marcados «Patrocinado» son pagados y no cambian el orden de las recomendaciones. Las marcas pertenecen a sus dueños; este sitio no está afiliado a ellas.</p>
 <p><a href="{link('/feed.xml')}">RSS</a> · <a href="{link('/llms.txt')}">llms.txt</a> · <a href="{link('/patrocina/')}">Patrocina</a> · <a href="{link('/acerca/')}">Cómo elegimos</a></p>
 </div></footer>
+<script src="{link('/assets/app.js')}" defer></script>
 {analytics()}
 </body>
 </html>
@@ -153,7 +163,7 @@ def precio(t):
 def tool_card(t, rank, cat_id):
     badges = []
     if rank == 0:
-        badges.append('<span class="b b-top">Mejor opción</span>')
+        pass
     if t.get("plan_gratis"):
         badges.append(f'<span class="b b-free" title="{e(t.get("nota_gratis") or "")}">Plan gratis</span>')
     if t.get("espanol"):
@@ -166,8 +176,13 @@ def tool_card(t, rank, cat_id):
     else:
         nota = ""
     ver = f'<li><strong>Datos revisados:</strong> {fecha_larga(t["verificado"])}</li>' if t.get("verificado") else ""
-    return f"""<article class="tool" id="{e(slug(t['nombre']))}">
-<div class="tool-h"><span class="rank">{rank + 1}</span><h3>{ext(t['url'], e(t['nombre']))}</h3><span class="maker">{e(t.get('empresa', ''))}</span></div>
+    sello = '<span class="sello">Mejor opción</span>' if rank == 0 else ""
+    precio_n = t.get("precio_desde_usd") if t.get("precio_desde_usd") is not None else ""
+    if t.get("plan_gratis"):
+        precio_n = 0
+    return f"""<article class="tool" id="{e(slug(t['nombre']))}" data-rank="{rank}" data-free="{1 if t.get('plan_gratis') else 0}" data-precio="{precio_n}">
+{sello}<span class="rank"><span class="sr">Puesto </span>{rank + 1}</span>
+<div class="tool-h"><h3>{ext(t['url'], e(t['nombre']))}</h3><span class="maker">{e(t.get('empresa', ''))}</span></div>
 <div class="badges">{''.join(badges)}</div>
 <p class="best"><strong>Ideal para:</strong> {e(cap(t['mejor_para']))}</p>
 <p>{e(t['veredicto'])}</p>
@@ -236,7 +251,7 @@ def build_category(cat):
     news_html = ""
     if news:
         news_html = "<h2>Novedades recientes</h2><ul class='news'>" + "".join(
-            f"<li><time>{fecha_larga(n['fecha'])}</time> {ext(n['fuente'], e(n['titulo']))}<br><span>{e(n['resumen'])}</span></li>"
+            f"<li><time>{fecha_larga(n['fecha'])}</time> {ext(n['fuente'], e(n['titulo']))}<span>{e(n['resumen'])}</span></li>"
             for n in news) + "</ul>"
     otras = "".join(f'<a class="chip" href="{link("/para/" + c["id"] + "/")}">{e(c["nombre"])}</a>'
                     for c in CATS if c["id"] != cat["id"])
@@ -245,14 +260,21 @@ def build_category(cat):
         f"<td>{gratis_txt(t)}</td><td>{precio(t)}</td></tr>" for t in tools)
     body = f"""
 <nav class="miga"><a href="{link('/')}">Inicio</a> › {e(cat['nombre'])}</nav>
-<h1>¿Qué IA uso para {e(cat['tarea'])}?</h1>
+<h1>¿Qué IA uso para <span class="marca">{e(cat['tarea'])}</span>?</h1>
 <p class="lead">{e(cat['intro'])}</p>
-<div class="corta"><span class="tag">Respuesta corta · {MES}</span><p>{respuesta_corta(cat, tools)}</p></div>
+<div class="nota-adhesiva"><span class="tag">Respuesta corta · {MES}</span><p>{respuesta_corta(cat, tools)}</p></div>
 {sponsor_html(cat['id'])}
 <h2>Las {len(tools)} mejores, en orden</h2>
+<div class="filtros" role="toolbar" aria-label="Filtrar y ordenar">
+<button type="button" data-f="gratis" aria-pressed="false">Solo con plan gratis</button>
+<button type="button" data-f="rank" aria-pressed="true">Orden recomendado</button>
+<button type="button" data-f="precio" aria-pressed="false">Más baratas primero</button>
+<span id="cuenta" aria-live="polite">{len(tools)} herramientas</span>
+</div>
 <div class="tools">{''.join(tool_card(t, i, cat['id']) for i, t in enumerate(tools))}</div>
+<p id="vacio" class="vacio" hidden>Ninguna herramienta de esta tarea tiene plan gratis. Quita el filtro para ver todas.</p>
 <h2>Comparación rápida</h2>
-<div class="tabla"><table><thead><tr><th>Herramienta</th><th>Ideal para</th><th>Plan gratis</th><th>Precio</th></tr></thead><tbody>{tabla}</tbody></table></div>
+<div class="tabla" tabindex="0" role="region" aria-label="Tabla comparativa"><table><thead><tr><th>Herramienta</th><th>Ideal para</th><th>Plan gratis</th><th>Precio</th></tr></thead><tbody>{tabla}</tbody></table></div>
 {news_html}
 <h2>Preguntas frecuentes</h2>
 {''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in qa)}
@@ -274,49 +296,89 @@ def build_category(cat):
 
 
 def build_home():
+    rots = [-1.4, 1.1, -0.6, 1.6, -1.0, 0.5, 1.3, -1.7]
     cards = []
-    for c in CATS:
+    for i, c in enumerate(CATS):
         tools = TOOLS.get(c["id"], [])
         top = tools[0]["nombre"] if tools else "—"
         gratis = next((t["nombre"] for t in tools if t.get("plan_gratis")), None)
         if tools and tools[0].get("plan_gratis"):
-            g = '<span class="free">Tiene plan gratis</span>'
+            g = '<span class="free">✓ Tiene plan gratis</span>'
         else:
             g = f'<span class="free">Gratis: {e(gratis)}</span>' if gratis else ""
-        cards.append(f'<a class="cat" href="{link("/para/" + c["id"] + "/")}" data-id="{c["id"]}">'
+        cards.append(f'<a class="cat" style="--rot:{rots[i % len(rots)]}deg" href="{link("/para/" + c["id"] + "/")}" data-id="{c["id"]}">'
                      f'<span class="cat-q">para {e(c["tarea"])}</span>'
-                     f'<strong>{e(top)}</strong>{g}</a>')
-    idx = [{"id": c["id"], "t": c["tarea"], "n": c["nombre"], "k": KEYS.get(c["id"], []),
-            "h": [t["nombre"] for t in TOOLS.get(c["id"], [])]} for c in CATS]
+                     f'<strong>{e(top)}</strong>{g}<span class="ir" aria-hidden="true">→</span></a>')
+
+    def mini(t):
+        return {"n": t["nombre"], "m": t["mejor_para"], "u": t["url"]} if t else None
+
+    idx = []
+    for c in CATS:
+        tools = TOOLS.get(c["id"], [])
+        idx.append({"id": c["id"], "t": c["tarea"], "n": c["nombre"], "k": KEYS.get(c["id"], []),
+                    "h": [t["nombre"] for t in tools], "url": link("/para/" + c["id"] + "/"),
+                    "top": mini(tools[0] if tools else None),
+                    "g": mini(next((t for t in tools if t.get("plan_gratis")), None))})
     news = "".join(
-        f"<li><time>{fecha_larga(n['fecha'])}</time> {ext(n['fuente'], e(n['titulo']))}<br><span>{e(n['resumen'])}</span></li>"
+        f"<li><time>{fecha_larga(n['fecha'])}</time> {ext(n['fuente'], e(n['titulo']))}<span>{e(n['resumen'])}</span></li>"
         for n in NEWS[:6])
     total = len({t["nombre"] for v in TOOLS.values() for t in v})
+    gratis_n = len({t["nombre"] for v in TOOLS.values() for t in v if t.get("plan_gratis")})
+    ejemplos = ["hacer un logo", "transcribir una reunión", "responder WhatsApp", "crear un video para TikTok",
+                "armar una presentación", "estudiar para una prueba", "programar una app", "clonar mi voz"]
+    atajos = [("📹 Video", "video"), ("🎨 Logo", "logo"), ("💬 WhatsApp", "whatsapp"), ("📊 Excel", "excel"),
+              ("🎙️ Voz", "voz"), ("📚 Estudiar", "estudiar"), ("💻 Programar", "programar")]
+    datos_json = json.dumps(idx, ensure_ascii=False).replace("</", "<\\/")
+    test_ops = "".join(f'<button type="button" data-cat="{c["id"]}">{e(c["nombre"])}</button>' for c in CATS)
     body = f"""
 <section class="hero">
-<h1>¿Qué IA uso para…?</h1>
-<p class="lead">Escribe tu tarea y te decimos qué herramienta de inteligencia artificial conviene, cuál es gratis y por qué. {total} herramientas revisadas en {len(CATS)} tareas, actualizado en {MES}.</p>
-<label class="buscar"><span class="sr">Buscar tarea</span>
-<input id="q" type="search" placeholder="Ej: hacer un logo, transcribir una reunión, responder WhatsApp…" autocomplete="off"></label>
-<p id="sin" class="sin" hidden>No encontramos esa tarea. Prueba con otra palabra o revisa la lista.</p>
+<p class="kicker">Directorio en español · revisado cada día</p>
+<h1>¿Qué <span class="marca">IA</span> uso?</h1>
+<div class="frase">
+<label for="q">Necesito una IA para</label>
+<span class="hueco"><input id="q" type="search" autocomplete="off" enterkeyhint="go" placeholder="hacer un logo"
+ data-ejemplos='{e(json.dumps(ejemplos, ensure_ascii=False))}'></span>
+</div>
+<div class="atajos" aria-label="Búsquedas rápidas">{''.join(f'<button type="button" data-q="{e(q)}">{e(t)}</button>' for t, q in atajos)}</div>
+<p id="sin" class="sin" role="status" hidden>Mmm, esa no la tenemos todavía. Prueba con otra palabra o elige una ficha.</p>
+<div class="stats">
+<span><strong data-count="{total}">{total}</strong>herramientas revisadas</span>
+<span><strong data-count="{len(CATS)}">{len(CATS)}</strong>tareas</span>
+<span><strong data-count="{gratis_n}">{gratis_n}</strong>con plan gratis</span>
+</div>
 </section>
+<h2 class="sr">Tareas</h2>
 <div class="cats" id="cats">{''.join(cards)}</div>
+<section class="test" id="test" aria-label="Test para elegir una IA">
+<div class="barra" aria-hidden="true"><i></i></div>
+<div class="paso">
+<p class="kicker">¿No sabes qué buscar?</p>
+<h2>Te lo resolvemos en 2 clics</h2>
+<p>1. ¿Qué quieres hacer?</p>
+<div class="ops">{test_ops}</div>
+</div>
+<div class="paso">
+<p class="kicker">Paso 2 de 2</p>
+<h2>¿Quieres pagar?</h2>
+<div class="ops"><button type="button" data-plata="gratis">Solo gratis, por ahora</button><button type="button" data-plata="pago">Pago si vale la pena</button></div>
+</div>
+<div class="paso">
+<p class="kicker">Tu IA es…</p>
+<div class="resultado" aria-live="polite">
+<p class="gana">—</p>
+<p class="por"></p>
+<a class="btn sitio" href="#" target="_blank" rel="noopener">Ir al sitio ↗</a>
+<a class="ficha" href="#">Ver todas las opciones →</a>
+<button type="button" class="volver">↺ Empezar de nuevo</button>
+</div>
+</div>
+</section>
 {sponsor_html('portada')}
-<h2>Novedades de IA</h2>
+<h2>Lo último en IA</h2>
 <ul class="news">{news}</ul>
 <p><a href="{link('/novedades/')}">Ver todas las novedades →</a></p>
-<script>
-const IDX={json.dumps(idx, ensure_ascii=False)};
-const STOP=['para','una','uno','unos','unas','con','del','las','los','que','hacer','crear','mis','por','como','quiero','necesito','algo','sobre','mejor','ia'];
-const norm=s=>s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();
-const q=document.getElementById('q'),cards=[...document.querySelectorAll('.cat')],sin=document.getElementById('sin');
-q.addEventListener('input',()=>{{const v=norm(q.value.trim());
-const ws=v.split(/\\s+/).filter(w=>w.length>2&&!STOP.includes(w));
-const sc=cards.map(c=>{{const d=IDX.find(x=>x.id===c.dataset.id);const txt=norm([d.t,d.n,...d.k,...d.h].join(' '));
-return ws.filter(w=>txt.includes(w)).length;}});const max=Math.max(...sc);
-cards.forEach((c,i)=>{{c.hidden=ws.length>0&&(max===0||sc[i]<max);}});sin.hidden=!(ws.length>0&&max===0);}});
-q.addEventListener('keydown',ev=>{{if(ev.key==='Enter'){{const f=cards.find(c=>!c.hidden);if(f)location.href=f.href;}}}});
-</script>
+<script type="application/json" id="datos">{datos_json}</script>
 """
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": CFG["nombre"], "url": BU + "/",
            "inLanguage": "es", "description": CFG["lema"]}]
@@ -328,7 +390,7 @@ q.addEventListener('keydown',ev=>{{if(ev.key==='Enter'){{const f=cards.find(c=>!
 def build_news():
     items = "".join(
         f"<li id='{e(slug(n['fecha'] + '-' + n['titulo']))[:80]}'><time>{fecha_larga(n['fecha'])}</time> "
-        f"{ext(n['fuente'], e(n['titulo']))}<br><span>{e(n['resumen'])}</span></li>" for n in NEWS)
+        f"{ext(n['fuente'], e(n['titulo']))}<span>{e(n['resumen'])}</span></li>" for n in NEWS)
     body = f"""<nav class="miga"><a href="{link('/')}">Inicio</a> › Novedades</nav>
 <h1>Novedades de herramientas de IA</h1>
 <p class="lead">Lanzamientos y cambios importantes, resumidos en español con el enlace a la fuente. Suscríbete por <a href="{link('/feed.xml')}">RSS</a>.</p>
@@ -357,7 +419,7 @@ def build_sponsor():
         return f"USD {n}<span>/mes</span>"
 
     body = f"""<nav class="miga"><a href="{link('/')}">Inicio</a> › Patrocina</nav>
-<h1>Patrocina Qué IA Uso</h1>
+<h1>Ponte frente a quien <span class="marca">está eligiendo</span></h1>
 <p class="lead">Llega a personas que están decidiendo qué herramienta de IA usar, en español, justo en el momento de elegir.</p>
 <div class="planes">
 <div class="plan"><h2>Destacado en una tarea</h2><p class="precio">{monto(cfg['precio_destacado_categoria'])}</p>
@@ -368,7 +430,7 @@ def build_sponsor():
 <p>Los patrocinios van siempre marcados y <strong>no cambian el orden</strong> de las recomendaciones: eso es lo que hace que la gente confíe en la lista.</p>
 <p>¿Dudas o quieres otro formato? {contacto}</p>
 <div id="gracias" class="corta" hidden><span class="tag">Pago recibido</span><p>¡Gracias! Escríbenos con el nombre y la web de tu herramienta, y la publicamos en menos de 48 horas.</p></div>
-<script>if(new URLSearchParams(location.search).has('gracias'))document.getElementById('gracias').hidden=false;</script>"""
+"""
     page("/patrocina/", "Patrocina Qué IA Uso", "Muestra tu herramienta de IA a público hispanohablante que está eligiendo qué usar.", body)
 
 
@@ -394,7 +456,7 @@ def build_about():
 
 
 def build_404():
-    body = f"""<h1>Esta página no existe</h1><p class="lead">Vuelve a la <a href="{link('/')}">portada</a> y busca tu tarea.</p>"""
+    body = f"""<p class="kicker">Error 404</p><h1>Ni la IA encontró <span class="marca">esta página</span></h1><p class="lead">Vuelve a la <a href="{link('/')}">portada</a> y busca tu tarea.</p>"""
     page("/404.html", "Página no encontrada · Qué IA Uso", "Página no encontrada.", body, noindex=True)
 
 
