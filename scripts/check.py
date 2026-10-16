@@ -107,7 +107,7 @@ else:
             code = r.stdout.strip()
             return u, int(code) if code.isdigit() and code != "000" else "sin respuesta"
 
-        todo = [u for u in external if not u.startswith(skip) and "zgo.at" not in u]
+        todo = [u for u in external if not u.startswith(skip) and "zgo.at" not in u and not u.rstrip("/").endswith(("fonts.googleapis.com", "fonts.gstatic.com"))]
         with ThreadPoolExecutor(12) as ex:
             for u, st in ex.map(probe, todo):
                 if st == 404 or st == 410 or isinstance(st, str):
