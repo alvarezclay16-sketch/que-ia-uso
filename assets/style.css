@@ -299,3 +299,30 @@ details p { margin: 10px 0 2px; color: var(--ink-2); }
   .nota-adhesiva { transform: rotate(-.6deg); }
 }
 .vacio { font-family: var(--serif); font-style: italic; color: var(--ink-2); }
+
+/* ---------- Logos y fichas de herramienta ---------- */
+.logo-h {
+  --s: 40px; position: relative; flex: none; width: var(--s); height: var(--s); border-radius: 22%; overflow: hidden;
+  background: var(--paper); border: 1.5px solid var(--line); display: inline-grid; place-items: center; align-self: center;
+}
+.logo-h::before { content: attr(data-ini); font-family: var(--serif); font-weight: 800; font-size: calc(var(--s) * .42); color: var(--ink-2); }
+.logo-h img { position: absolute; inset: 12%; width: 76%; height: 76%; object-fit: contain; background: var(--paper-2); }
+.tool-h { align-items: center; }
+.visitar { margin-left: auto; font: 600 .82rem var(--sans); border: 2px solid var(--ink); border-radius: 99px; padding: 4px 11px; color: var(--ink); text-decoration: none; }
+.visitar:hover { background: var(--ink); color: var(--paper); }
+.tool-h h3 a::after { content: none; }
+.ficha-h { display: flex; gap: 18px; align-items: center; margin-top: 8px; }
+.ficha-h h1 { margin: 0; }
+.ficha-h .kicker { margin: 0; }
+.datos { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; margin: 26px 0; border: 2px solid var(--ink); border-radius: var(--r); background: var(--paper-2); overflow: hidden; }
+.datos div { padding: 14px 16px; border-right: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); }
+.datos dt { font-family: var(--mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.datos dd { margin: 4px 0 0; font-weight: 600; }
+.alts, .azs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.alt, .az { display: flex; gap: 12px; align-items: center; padding: 10px 12px; border: 2px solid var(--ink); border-radius: var(--r); background: var(--paper-2); color: var(--ink); text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.alt:hover, .az:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
+.alt span, .az span { display: flex; flex-direction: column; min-width: 0; }
+.alt small, .az small { color: var(--muted); font-size: .8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.az em { margin-left: auto; font-style: normal; font-size: .72rem; font-weight: 700; color: var(--green); background: var(--green-soft); padding: 2px 8px; border-radius: 99px; }
+.az[hidden] { display: none; }
+.buscar-az input { font: inherit; padding: 6px 12px; border: 2px solid var(--ink); border-radius: 99px; background: var(--paper-2); color: var(--ink); min-width: 200px; }

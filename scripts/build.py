@@ -32,6 +32,7 @@ TOOLS = load("herramientas.json", {})
 NEWS = sorted(load("novedades.json", []), key=lambda n: n["fecha"], reverse=True)
 SPONS = load("patrocinios.json", [])
 KEYS = load("busqueda.json", {})
+FX = load("tipo_cambio.json", None)
 TODAY = dt.date.today()
 MES = f"{MESES[TODAY.month - 1]} de {TODAY.year}"
 MES_CORTO = f"{MESES[TODAY.month - 1]} {TODAY.year}"
@@ -101,7 +102,7 @@ def page(path, title, desc, body, jsonld=None, canonical=None, noindex=False):
         ld += f'<script type="application/ld+json">{json.dumps(block, ensure_ascii=False)}</script>\n'
     nav = "".join(
         f'<a href="{link(h)}"{AC if h == path else ""}>{t}</a>'
-        for h, t in [("/", "Inicio"), ("/novedades/", "Novedades"), ("/patrocina/", "Patrocina"), ("/acerca/", "Cómo elegimos")]
+        for h, t in [("/", "Inicio"), ("/herramientas/", "Herramientas"), ("/novedades/", "Novedades"), ("/patrocina/", "Patrocina"), ("/acerca/", "Cómo elegimos")]
     )
     cinta = "".join(f'<a href="{e(n["fuente"])}" target="_blank" rel="noopener"><b>{dt.date.fromisoformat(n["fecha"]).day} {MESES[dt.date.fromisoformat(n["fecha"]).month - 1][:3]}</b>{e(n["titulo"])}</a>'
                     for n in NEWS[:8])
@@ -137,9 +138,9 @@ def page(path, title, desc, body, jsonld=None, canonical=None, noindex=False):
 </main>
 <footer class="pie"><div class="wrap">
 <p><a class="logo" href="{link('/')}"><span class="q">¿</span>Qué IA Uso<span class="q">?</span></a><br>{e(CFG['lema'])}</p>
-<p>Actualizado el {fecha_larga(TODAY.isoformat())}. Los precios y planes cambian seguido: confírmalos en el sitio oficial antes de pagar.
+<p>Actualizado el {fecha_larga(TODAY.isoformat())}.{f" Precios en pesos chilenos aproximados con dólar a ${FX['clp_por_usd']:,.0f} ({FX['fecha']}).".replace(",", ".") if FX else ""} Los precios y planes cambian seguido: confírmalos en el sitio oficial antes de pagar.
 Los espacios marcados «Patrocinado» son pagados y no cambian el orden de las recomendaciones. Las marcas pertenecen a sus dueños; este sitio no está afiliado a ellas.</p>
-<p><a href="{link('/feed.xml')}">RSS</a> · <a href="{link('/llms.txt')}">llms.txt</a> · <a href="{link('/patrocina/')}">Patrocina</a> · <a href="{link('/acerca/')}">Cómo elegimos</a></p>
+<p><a href="{link('/herramientas/')}">Todas las herramientas</a> · <a href="https://github.com/{CFG['repo']}/issues/new?title=Sugerencia%3A+" target="_blank" rel="noopener">Sugerir una herramienta</a> · <a href="{link('/feed.xml')}">RSS</a> · <a href="{link('/llms.txt')}">llms.txt</a> · <a href="{link('/patrocina/')}">Patrocina</a> · <a href="{link('/acerca/')}">Cómo elegimos</a></p>
 </div></footer>
 <script src="{link('/assets/app.js')}" defer></script>
 {analytics()}
@@ -156,7 +157,10 @@ def precio(t):
         p = t["precio_desde_usd"]
         p = str(int(p)) if float(p).is_integer() else f"{p:.2f}".rstrip("0").rstrip(".").replace(".", ",")
         nota = f" ({t['nota_precio']})" if t.get("nota_precio") else ""
-        return f"desde USD {p}/mes{nota}"
+        clp = ""
+        if FX and "euro" not in (t.get("nota_precio") or ""):
+            clp = " ≈ $" + f"{round(float(t['precio_desde_usd']) * FX['clp_por_usd'], -2):,.0f}".replace(",", ".") + " CLP"
+        return f"desde USD {p}/mes{clp}{nota}"
     return "ver en su sitio"
 
 
@@ -182,12 +186,39 @@ def tool_card(t, rank, cat_id):
         precio_n = 0
     return f"""<article class="tool" id="{e(slug(t['nombre']))}" data-rank="{rank}" data-free="{1 if t.get('plan_gratis') else 0}" data-precio="{precio_n}">
 {sello}<span class="rank"><span class="sr">Puesto </span>{rank + 1}</span>
-<div class="tool-h"><h3>{ext(t['url'], e(t['nombre']))}</h3><span class="maker">{e(t.get('empresa', ''))}</span></div>
+<div class="tool-h">{logo(t)}<h3><a href="{tool_link(t)}">{e(t['nombre'])}</a></h3><span class="maker">{e(t.get('empresa', ''))}</span>{ext(t['url'], 'Visitar ↗', 'visitar')}</div>
 <div class="badges">{''.join(badges)}</div>
 <p class="best"><strong>Ideal para:</strong> {e(cap(t['mejor_para']))}</p>
 <p>{e(t['veredicto'])}</p>
 <ul class="meta">{nota}<li><strong>Precio:</strong> {precio(t)}</li>{ver}</ul>
 </article>"""
+
+
+def dominio(url):
+    from urllib.parse import urlparse
+    return urlparse(url).netloc.removeprefix("www.")
+
+
+def logo(t, size=40):
+    ini = e("".join(w[0] for w in t["nombre"].split()[:2]).upper())
+    src = f"https://www.google.com/s2/favicons?domain={dominio(t['url'])}&sz=128"
+    return (f'<span class="logo-h" style="--s:{size}px" data-ini="{ini}">'
+            f'<img src="{e(src)}" alt="" width="{size}" height="{size}" loading="lazy" referrerpolicy="no-referrer" '
+            f'onerror="this.remove()"></span>')
+
+
+def herramientas_unicas():
+    """{slug: {"t": datos de la primera aparición, "cats": [(cat, puesto, datos)]}}"""
+    out = {}
+    for c in CATS:
+        for i, t in enumerate(TOOLS.get(c["id"], [])):
+            k = slug(t["nombre"])
+            out.setdefault(k, {"t": t, "cats": []})["cats"].append((c, i, t))
+    return out
+
+
+def tool_link(t):
+    return link(f"/herramienta/{slug(t['nombre'])}/")
 
 
 def gratis_txt(t):
@@ -256,7 +287,7 @@ def build_category(cat):
     otras = "".join(f'<a class="chip" href="{link("/para/" + c["id"] + "/")}">{e(c["nombre"])}</a>'
                     for c in CATS if c["id"] != cat["id"])
     tabla = "".join(
-        f"<tr><td>{ext(t['url'], e(t['nombre']))}</td><td>{e(t['mejor_para'])}</td>"
+        f"<tr><td><a href=\"{tool_link(t)}\">{e(t['nombre'])}</a></td><td>{e(t['mejor_para'])}</td>"
         f"<td>{gratis_txt(t)}</td><td>{precio(t)}</td></tr>" for t in tools)
     body = f"""
 <nav class="miga"><a href="{link('/')}">Inicio</a> › {e(cat['nombre'])}</nav>
@@ -387,6 +418,73 @@ def build_home():
          body, ld)
 
 
+def build_tool_pages():
+    U = herramientas_unicas()
+    for k, d in U.items():
+        t = d["t"]
+        usos = "".join(
+            f'<li><a href="{link("/para/" + c["id"] + "/")}">Para {e(c["tarea"])}</a> — puesto <strong>{i + 1}</strong> de {len(TOOLS[c["id"]])}. '
+            f'{e(cap(tt["mejor_para"]))}.</li>' for c, i, tt in d["cats"])
+        veredictos = "".join(f'<p>{e(tt["veredicto"])}</p>' for _, _, tt in d["cats"])
+        alts = []
+        for c, i, _ in d["cats"]:
+            for o in TOOLS[c["id"]]:
+                if slug(o["nombre"]) != k and o["nombre"] not in [a["nombre"] for a in alts]:
+                    alts.append(o)
+        alts_html = "".join(f'<a class="alt" href="{tool_link(o)}">{logo(o, 28)}<span><strong>{e(o["nombre"])}</strong>'
+                            f'<small>{"Plan gratis" if o.get("plan_gratis") else precio(o)}</small></span></a>' for o in alts[:8])
+        pg = t.get("plan_gratis")
+        gratis = ("Sí: " + (t.get("nota_gratis") or "tiene plan gratis")) if pg is True else (
+            "No" + (f" ({t['nota_gratis']})" if t.get("nota_gratis") else "")) if pg is False else "Revisa su sitio"
+        faq_t = [(f"¿{t['nombre']} es gratis?", gratis + "."),
+                 (f"¿Cuánto cuesta {t['nombre']}?", cap(precio(t)) + ". Confirma el precio en su sitio antes de pagar."),
+                 (f"¿{t['nombre']} funciona en español?", "Sí, entiende y responde en español." if t.get("espanol") else "Su soporte en español es limitado."),
+                 (f"¿Qué alternativas hay a {t['nombre']}?", ", ".join(a["nombre"] for a in alts[:5]) + "." if alts else "Por ahora no tenemos alternativas listadas.")]
+        body = f"""<nav class="miga"><a href="{link('/')}">Inicio</a> › <a href="{link('/herramientas/')}">Herramientas</a> › {e(t['nombre'])}</nav>
+<div class="ficha-h">{logo(t, 72)}<div><p class="kicker">{e(t.get('empresa', ''))}</p><h1>{e(t['nombre'])}</h1></div></div>
+<p class="lead">{e(cap(d['cats'][0][2]['mejor_para']))}.</p>
+<p>{ext(t['url'], f'Ir a {e(t["nombre"])} ↗', 'btn')}</p>
+<dl class="datos">
+<div><dt>Plan gratis</dt><dd>{e(gratis)}</dd></div>
+<div><dt>Precio</dt><dd>{e(precio(t))}</dd></div>
+<div><dt>En español</dt><dd>{"Sí" if t.get("espanol") else "Limitado"}</dd></div>
+<div><dt>Datos revisados</dt><dd>{fecha_larga(t["verificado"]) if t.get("verificado") else "—"}</dd></div>
+</dl>
+<h2>Nuestra opinión</h2>
+{veredictos}
+<p class="nota">Fuente de precios y planes: {ext(t.get('fuente') or t['url'], e(dominio(t.get('fuente') or t['url'])))}</p>
+<h2>Dónde la recomendamos</h2>
+<ul class="lista">{usos}</ul>
+<h2>Alternativas</h2>
+<div class="alts">{alts_html}</div>
+<h2>Preguntas frecuentes</h2>
+{''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq_t)}
+"""
+        ld = [{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["nombre"], "url": t["url"],
+               "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
+               "publisher": {"@type": "Organization", "name": t.get("empresa", "")},
+               **({"offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}} if pg else {})},
+              {"@context": "https://schema.org", "@type": "FAQPage",
+               "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_t]}]
+        page(f"/herramienta/{k}/", f"{t['nombre']}: precio, plan gratis y alternativas ({MES_CORTO})",
+             recortar(f"{t['nombre']} en español: para qué sirve, si es gratis, cuánto cuesta y sus mejores alternativas. Revisado en {MES_CORTO}."),
+             body, ld)
+
+    filas = sorted(U.values(), key=lambda d: d["t"]["nombre"].lower())
+    items = "".join(
+        f'<a class="az" href="{tool_link(d["t"])}" data-free="{1 if d["t"].get("plan_gratis") else 0}">{logo(d["t"], 36)}'
+        f'<span><strong>{e(d["t"]["nombre"])}</strong><small>{e(", ".join(c["nombre"] for c, _, _ in d["cats"]))}</small></span>'
+        f'{"<em>Gratis</em>" if d["t"].get("plan_gratis") else ""}</a>' for d in filas)
+    body = f"""<nav class="miga"><a href="{link('/')}">Inicio</a> › Herramientas</nav>
+<h1>Todas las <span class="marca">herramientas</span></h1>
+<p class="lead">{len(U)} herramientas de IA revisadas, de la A a la Z. Cada ficha dice para qué sirve, si tiene plan gratis, cuánto cuesta y qué alternativas hay.</p>
+<div class="filtros" role="toolbar" aria-label="Filtrar"><button type="button" data-az="gratis" aria-pressed="false">Solo con plan gratis</button>
+<label class="buscar-az"><span class="sr">Buscar herramienta</span><input id="qaz" type="search" placeholder="Buscar por nombre…" autocomplete="off"></label></div>
+<div class="azs">{items}</div>"""
+    page("/herramientas/", f"Todas las herramientas de IA revisadas ({MES_CORTO})",
+         f"Lista de {len(U)} herramientas de IA en español: para qué sirve cada una, plan gratis, precio y alternativas.", body)
+
+
 def build_news():
     items = "".join(
         f"<li id='{e(slug(n['fecha'] + '-' + n['titulo']))[:80]}'><time>{fecha_larga(n['fecha'])}</time> "
@@ -421,6 +519,7 @@ def build_sponsor():
     body = f"""<nav class="miga"><a href="{link('/')}">Inicio</a> › Patrocina</nav>
 <h1>Ponte frente a quien <span class="marca">está eligiendo</span></h1>
 <p class="lead">Llega a personas que están decidiendo qué herramienta de IA usar, en español, justo en el momento de elegir.</p>
+<p class="kicker">Precio de lanzamiento · sitio nuevo · se paga mes a mes</p>
 <div class="planes">
 <div class="plan"><h2>Destacado en una tarea</h2><p class="precio">{monto(cfg['precio_destacado_categoria'])}</p>
 <p>Tu herramienta en un recuadro «Patrocinado» arriba de la lista de la tarea que elijas (por ejemplo, «para crear videos»).</p>{pago('pago_destacado_categoria')}</div>
@@ -449,8 +548,10 @@ def build_about():
 </ul>
 <h2>Actualización</h2>
 <p>La lista se revisa todos los días con ayuda de un agente de IA que busca lanzamientos nuevos, y una persona aprueba los cambios grandes. Cada herramienta tiene la fecha en que se verificó. Si ves un dato malo, <a href="https://github.com/{CFG['repo']}/issues/new?title=Dato+incorrecto" target="_blank" rel="noopener">avísanos aquí</a>.</p>
-<h2>Patrocinios</h2>
-<p>Los espacios pagados dicen «Patrocinado» y nunca cambian el orden de las recomendaciones.</p>"""
+<h2>Cómo ganamos dinero</h2>
+<p>Solo con espacios patrocinados, que siempre dicen «Patrocinado» y nunca cambian el orden de las recomendaciones. No usamos enlaces de afiliado ni cobramos por aparecer en la lista. <a href="{link('/patrocina/')}">Ver precios</a>.</p>
+<h2>¿Falta una herramienta?</h2>
+<p><a href="https://github.com/{CFG['repo']}/issues/new?title=Sugerencia%3A+" target="_blank" rel="noopener">Sugiérela aquí</a> y la revisamos con los mismos criterios.</p>"""
     page("/acerca/", "Cómo elegimos las herramientas · Qué IA Uso",
          "Criterios y método de actualización del directorio Qué IA Uso.", body)
 
@@ -484,7 +585,8 @@ def build_llms():
 
 
 def build_seo_files():
-    urls = ["/", "/novedades/", "/patrocina/", "/acerca/"] + [f"/para/{c['id']}/" for c in CATS]
+    urls = (["/", "/herramientas/", "/novedades/", "/patrocina/", "/acerca/"] + [f"/para/{c['id']}/" for c in CATS]
+            + [f"/herramienta/{k}/" for k in herramientas_unicas()])
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         sm.append(f"<url><loc>{BU}{u}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>")
@@ -519,6 +621,7 @@ def main():
     build_home()
     for c in CATS:
         build_category(c)
+    build_tool_pages()
     build_news()
     build_sponsor()
     build_about()

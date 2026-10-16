@@ -131,6 +131,19 @@
     }));
   }
 
+  // ---------- Índice A-Z ----------
+  const azs = $$('.az');
+  if (azs.length) {
+    const qaz = $('#qaz'), bg = $('[data-az="gratis"]');
+    let soloGratis = false;
+    const f = () => {
+      const v = norm(qaz.value.trim());
+      azs.forEach(a => { a.hidden = (soloGratis && a.dataset.free !== '1') || (v && !norm(a.textContent).includes(v)); });
+    };
+    qaz.addEventListener('input', f);
+    bg.addEventListener('click', () => { soloGratis = !soloGratis; bg.setAttribute('aria-pressed', soloGratis); f(); });
+  }
+
   // ---------- Patrocina: aviso de pago recibido ----------
   const gracias = $('#gracias');
   if (gracias && new URLSearchParams(location.search).has('gracias')) gracias.hidden = false;
