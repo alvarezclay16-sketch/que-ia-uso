@@ -5,10 +5,12 @@
   "base_path": "/que-ia-uso",
   "repo": "alvarezclay16-sketch/que-ia-uso",
   "contacto_email": "",
-  "stripe_destacado_categoria": "",
-  "stripe_destacado_portada": "",
-  "precio_destacado_categoria_usd": 49,
-  "precio_destacado_portada_usd": 99,
+  "pago_proveedor": "Mercado Pago",
+  "pago_destacado_categoria": "",
+  "pago_destacado_portada": "",
+  "moneda": "CLP",
+  "precio_destacado_categoria": 45000,
+  "precio_destacado_portada": 90000,
   "newsletter_url": "",
   "goatcounter": ""
 }

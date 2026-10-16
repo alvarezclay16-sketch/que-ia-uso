@@ -57,6 +57,9 @@ for n in news:
         errors.append(f"novedad con fecha futura: {n['titulo']}")
     if n.get("categoria") and n["categoria"] not in cat_ids:
         errors.append(f"novedad con categoría desconocida: {n['titulo']}")
+for k in ("pago_destacado_categoria", "pago_destacado_portada"):
+    if cfg.get(k) and not cfg[k].startswith("https://"):
+        errors.append(f"config.json: {k} debe ser un link https")
 for s in spons:
     if s.get("categoria") not in cat_ids | {"portada", "novedades"}:
         errors.append(f"patrocinio con ubicación desconocida: {s}")

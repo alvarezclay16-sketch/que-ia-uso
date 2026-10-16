@@ -347,19 +347,28 @@ def build_sponsor():
 
     def pago(key):
         u = cfg.get(key)
-        return f' <a class="btn btn-2" href="{e(u)}" target="_blank" rel="noopener">Pagar ahora</a>' if u else ""
+        prov = cfg.get("pago_proveedor") or "tarjeta"
+        return (f'<p><a class="btn btn-2" href="{e(u)}" target="_blank" rel="noopener">Suscribirme con {e(prov)}</a></p>'
+                f'<p class="nota">Cobro mensual automático; lo cancelas cuando quieras.</p>') if u else ""
+
+    def monto(n):
+        if cfg.get("moneda", "CLP") == "CLP":
+            return f"${n:,.0f}".replace(",", ".") + "<span> CLP/mes</span>"
+        return f"USD {n}<span>/mes</span>"
 
     body = f"""<nav class="miga"><a href="{link('/')}">Inicio</a> › Patrocina</nav>
 <h1>Patrocina Qué IA Uso</h1>
 <p class="lead">Llega a personas que están decidiendo qué herramienta de IA usar, en español, justo en el momento de elegir.</p>
 <div class="planes">
-<div class="plan"><h2>Destacado en una tarea</h2><p class="precio">USD {cfg['precio_destacado_categoria_usd']}<span>/mes</span></p>
-<p>Tu herramienta en un recuadro «Patrocinado» arriba de la lista de la tarea que elijas (por ejemplo, «para crear videos»).</p>{pago('stripe_destacado_categoria')}</div>
-<div class="plan"><h2>Portada y novedades</h2><p class="precio">USD {cfg['precio_destacado_portada_usd']}<span>/mes</span></p>
-<p>Recuadro en la portada y en la página de novedades{", más una mención en el boletín" if cfg.get("newsletter_url") else ""}.</p>{pago('stripe_destacado_portada')}</div>
+<div class="plan"><h2>Destacado en una tarea</h2><p class="precio">{monto(cfg['precio_destacado_categoria'])}</p>
+<p>Tu herramienta en un recuadro «Patrocinado» arriba de la lista de la tarea que elijas (por ejemplo, «para crear videos»).</p>{pago('pago_destacado_categoria')}</div>
+<div class="plan"><h2>Portada y novedades</h2><p class="precio">{monto(cfg['precio_destacado_portada'])}</p>
+<p>Recuadro en la portada y en la página de novedades{", más una mención en el boletín" if cfg.get("newsletter_url") else ""}.</p>{pago('pago_destacado_portada')}</div>
 </div>
 <p>Los patrocinios van siempre marcados y <strong>no cambian el orden</strong> de las recomendaciones: eso es lo que hace que la gente confíe en la lista.</p>
-<p>{contacto}</p>"""
+<p>¿Dudas o quieres otro formato? {contacto}</p>
+<div id="gracias" class="corta" hidden><span class="tag">Pago recibido</span><p>¡Gracias! Escríbenos con el nombre y la web de tu herramienta, y la publicamos en menos de 48 horas.</p></div>
+<script>if(new URLSearchParams(location.search).has('gracias'))document.getElementById('gracias').hidden=false;</script>"""
     page("/patrocina/", "Patrocina Qué IA Uso", "Muestra tu herramienta de IA a público hispanohablante que está eligiendo qué usar.", body)
 
 

@@ -130,3 +130,4 @@ details p { margin: 10px 0 2px; }
 
 .pie { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; padding: 24px 0 40px; background: var(--surface); }
 .pie a { color: var(--muted); }
+.nota { color: var(--muted); font-size: 0.88rem; margin: 6px 0 0; }
