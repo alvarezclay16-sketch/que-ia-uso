@@ -408,15 +408,15 @@
    "nombre": "Murf",
    "url": "https://murf.ai",
    "empresa": "Murf AI",
-   "plan_gratis": null,
-   "nota_gratis": null,
-   "precio_desde_usd": null,
-   "nota_precio": null,
+   "plan_gratis": false,
+   "nota_gratis": "sin plan gratis en Studio; la API trae USD 10 de prueba",
+   "precio_desde_usd": 19,
+   "nota_precio": "plan Creator, «desde» según forma de pago",
    "mejor_para": "grabar locuciones de estudio para videos corporativos y cursos",
    "veredicto": "Locuciones de estudio para videos corporativos y cursos, con editor para ajustar pausas y énfasis.",
    "espanol": true,
    "fuente": "https://murf.ai/pricing",
-   "verificado": "2026-10-16"
+   "verificado": "2026-10-19"
   },
   {
    "nombre": "Voces de Gemini",
@@ -431,6 +431,20 @@
    "espanol": true,
    "fuente": "https://ai.google.dev/gemini-api/docs/changelog",
    "verificado": "2026-10-16"
+  },
+  {
+   "nombre": "Fish Audio",
+   "url": "https://fish.audio",
+   "empresa": "Fish Audio",
+   "plan_gratis": true,
+   "nota_gratis": "8.000 créditos al mes (unos 7 minutos), solo uso personal",
+   "precio_desde_usd": 11,
+   "nota_precio": "plan Plus pagando anual; USD 15 mes a mes",
+   "mejor_para": "clonar voces y generar locuciones baratas con plan gratis",
+   "veredicto": "Alternativa más barata a ElevenLabs para texto a voz y clonación de voz, con página en español. El plan gratis da unos 7 minutos al mes sin uso comercial; Plus sube a unos 200 minutos.",
+   "espanol": true,
+   "fuente": "https://fish.audio/plan/",
+   "verificado": "2026-10-19"
   }
  ],
  "musica": [
@@ -446,7 +460,7 @@
    "veredicto": "La más usada para canciones completas con voz y letra en español. El plan gratis no permite uso comercial; Pro sí. La versión v6 (septiembre) permite editar partes de una canción.",
    "espanol": true,
    "fuente": "https://suno.com/pricing",
-   "verificado": "2026-10-16"
+   "verificado": "2026-10-19"
   },
   {
    "nombre": "ElevenLabs Music",

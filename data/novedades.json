@@ -150,5 +150,13 @@
   "herramienta": "ElevenLabs",
   "categoria": "musica",
   "fuente": "https://www.scriptbyai.com/elevenlabs-timeline/"
+ },
+ {
+  "fecha": "2026-10-17",
+  "titulo": "DeepSeek lanza V4.1 Flash 1017",
+  "resumen": "Nueva versión del modelo rápido de DeepSeek, con pesos abiertos, más rápida y con respuestas más cortas; ya está en la web, la app y la API. También abre a todos sus API de búsqueda.",
+  "herramienta": "DeepSeek",
+  "categoria": "programar",
+  "fuente": "https://api-docs.deepseek.com/news/news261017"
  }
 ]
