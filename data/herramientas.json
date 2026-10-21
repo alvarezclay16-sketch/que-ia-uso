@@ -314,7 +314,7 @@
    "veredicto": "La opción más segura para uso comercial y la que mejor se integra con Photoshop y Adobe Express. Tiene generaciones gratis cada día.",
    "espanol": true,
    "fuente": "https://www.adobe.com/products/firefly/plans.html",
-   "verificado": "2026-10-16"
+   "verificado": "2026-10-21"
   }
  ],
  "video": [
@@ -475,6 +475,20 @@
    "espanol": true,
    "fuente": "https://elevenlabs.io/pricing",
    "verificado": "2026-10-16"
+  },
+  {
+   "nombre": "Soundraw",
+   "url": "https://soundraw.io",
+   "empresa": "Soundraw",
+   "plan_gratis": false,
+   "nota_gratis": "la página de precios solo muestra planes pagos",
+   "precio_desde_usd": 5.99,
+   "nota_precio": "plan Creator; el precio puede depender de pagar anual",
+   "mejor_para": "música instrumental libre de derechos para videos y redes",
+   "veredicto": "Genera pistas instrumentales que puedes ajustar y usar en videos monetizados y plataformas como Spotify desde el plan más barato. No crea canciones con voz.",
+   "espanol": false,
+   "fuente": "https://soundraw.io/pricing",
+   "verificado": "2026-10-21"
   },
   {
    "nombre": "Google Lyria",
@@ -699,14 +713,14 @@
    "url": "https://www.adobe.com/express",
    "empresa": "Adobe",
    "plan_gratis": true,
-   "nota_gratis": "IA generativa limitada",
+   "nota_gratis": "generaciones diarias gratis de imágenes y efectos de texto",
    "precio_desde_usd": 9.99,
    "nota_precio": null,
    "mejor_para": "gráficos rápidos para redes, con imágenes de Firefly",
    "veredicto": "Gráficos rápidos para redes con las imágenes de Firefly integradas, y con plan gratis.",
    "espanol": true,
    "fuente": "https://www.adobe.com/express/pricing",
-   "verificado": "2026-10-16"
+   "verificado": "2026-10-21"
   },
   {
    "nombre": "Framer",

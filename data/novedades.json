@@ -158,5 +158,13 @@
   "herramienta": "DeepSeek",
   "categoria": "programar",
   "fuente": "https://api-docs.deepseek.com/news/news261017"
+ },
+ {
+  "fecha": "2026-10-19",
+  "titulo": "MiniMax lanza M3.1 Flash",
+  "resumen": "Nuevo modelo rápido de MiniMax, con mejoras en programación, uso del computador y tareas con agentes. Está en su API, M Plan y MiniMax Code; promete liberar los pesos más adelante y dice que las tareas con agentes cuestan 70 % menos que con la versión anterior.",
+  "herramienta": "MiniMax",
+  "categoria": "programar",
+  "fuente": "https://www.minimax.io/blog/minimax-m31f"
  }
 ]
